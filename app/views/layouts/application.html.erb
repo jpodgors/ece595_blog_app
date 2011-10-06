@@ -5,9 +5,14 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <%= auto_discovery_link_tag :atom, feed_path %>
 </head>
 <body>
 
+	<a href="<%= feed_path %>">
+		<%= image_tag("bones.png", {:alt => 'Atom feed', :class =>"feed"})%>Subscribe
+	</a>
+		
 <%= yield %>
 
 </body>

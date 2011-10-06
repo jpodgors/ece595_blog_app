@@ -4,7 +4,8 @@ Blog::Application.routes.draw do
   	resources :comments
   end
   	
-
+	match '/feed' => 'posts#feed', :as => :feed, :defaults => { :format => 'atom' }
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

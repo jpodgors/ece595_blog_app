@@ -8,8 +8,20 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
+      format.js # create.js.erb
+      format.xml { render :xml => @posts }
+      format.atom # index.atom.builder
     end
   end
+  
+  def feed
+  	@posts = Post.where(:state => ['3', '4']).order('accepted desc')
+  	
+  	respond_to do |format|
+  		format.atom
+		end
+  end
+	
 
   # GET /posts/1
   # GET /posts/1.json
